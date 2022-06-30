@@ -52,8 +52,14 @@ const handleError: UploadProps['onError'] = (files, uploadFiles) => {
   setTimeout(() => {
     closeLoading()
     console.log('ok')
-    openAlert()
-  }, 1000)
+    ElMessageBox.confirm(
+      'Cancel the transfert of ?',
+    ).then(
+      () => true,
+      () => false,
+    )
+    // openAlert()
+  }, 10000)
 }
 
 const beforeRemove: UploadProps['beforeRemove'] = (uploadFile, uploadFiles) => {
